@@ -1,0 +1,26 @@
+<form>
+    <div  [hidden]="ajout" >
+        <label>ID Client</label>
+        <input type="text" [readonly]="!ajout" [(ngModel)]="client.idClient" name="idClient" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom Client</label>
+        <input type="text" [(ngModel)]="client.nomClient" name="nom" class="form-control"
+               placeholder="Entrez un nom de client...">
+    </div>
+  <div>
+    <label>Prenom Client</label>
+    <input type="text" [(ngModel)]="client.nomClient" name="prenom" class="form-control"
+           placeholder="Entrez prenom de client...">
+  </div>
+  <div>
+    <label>Adresse Client</label>
+    <input type="text" [(ngModel)]="client.nomClient" name="adresse" class="form-control"
+           placeholder="Entrez adresse de client...">
+  </div>
+    <div class="mt-2">
+        <button type="submit" [disabled]="!client.nomClient" class="btn btn-success"
+                (click)="saveClient()">{{ajout ? 'Ajouter' : 'Modifier'}}
+        </button>
+    </div>
+</form>

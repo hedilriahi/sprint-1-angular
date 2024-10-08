@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th> <th>Prix</th>  <th>Date Création</th><th>Client</th> </tr>
+                </thead>
+                <tbody *ngFor="let commande of commandes">
+                    <tr>
+                        <td>{{commande.idCommande}}</td>
+                        <td>{{commande.total}}</td>
+                        <td>{{commande.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{commande.client?.nomClient}}</td>
+                        <td><a *ngIf="authService.isAdmin()"
+                             class="btn btn-danger" (click)="supprimerCommande(commande)">Supprimer</a></td>
+                        <td><a *ngIf="authService.isAdmin()"
+                             class="btn btn-success" [routerLink]="['/updateCommande',commande.idCommande]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Clients </label>
+        <select class="form-control form-control-lg" id="idCat" name="idCat"
+                [(ngModel)]="IdClient" (change)="onChange()">
+          <option *ngFor="let client of clients" value="{{client.idClient}}">
+               {{client.nomClient}}
+         </option>
+    </select>
+   </div>
+
+
+
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th><th>Prix</th>  <th>Date Création</th><th>Client</th> </tr>
+                </thead>
+                <tbody *ngFor="let commande of commandes">
+                    <tr>
+                        <td>{{commande.idCommande}}</td>
+                        <td>{{commande.total}}</td>
+                        <td>{{commande.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{commande.client?.nomClient}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
